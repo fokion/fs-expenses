@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "name": "FS Expenses",
+  "launch_path": "/index.html",
+  "description": "Track your Expenses online",
+  "developer": {
+    "name": "Fokion Sotiropoulos",
+    "url": "https://fokion.github.io"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "FS Expenses",
+      "description": "Track your Expenses online"
+    }
+  }
+}

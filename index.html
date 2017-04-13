@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FS Expenses</title>
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="FS Expenses">
+    <meta name="theme-color" content="#69cbe3">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FS Expenses">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#69cbe3">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="css/component.css"/>
+    <link rel="stylesheet" type="text/css" href="css/cs-select.css"/>
+    <link rel="stylesheet" type="text/css" href="css/cs-skin-boxes.css"/>
+</head>
+<body>
+
+<div class="container hidden" id="loading">
+
+</div>
+<div class="container hidden" id="login-container">
+    <div class="fs-sign-in-container">
+        <h1>Welcome to FSExpenses</h1>
+        <button class="fs-sign-in" id="quickstart-sign-in">Sign in with Google</button>
+    </div>
+</div>
+<div class="container hidden" id="form-container">
+
+    <div class="fs-form-wrap" id="fs-form-wrap">
+        <div class="account-controls hidden" id="account-controls">
+
+            <div class="inline-option">
+                <button class="fs-sign-out" id="sign-out"><i class="material-icons">exit_to_app</i></button>
+            </div>
+            <div class="inline-option">
+                <h2 id="account-name"></h2>
+            </div>
+
+        </div>
+        <button class="fs-graphs" id="graph-btn"><i class="material-icons">multiline_chart</i></button>
+        <form id="myform" class="fs-form fs-form-full" autocomplete="off">
+            <ol class="fs-fields">
+                <li>
+                    <label class="fs-field-label fs-anim-upper" for="amount">How much?</label>
+                    <input class="fs-mark fs-anim-lower" data-form-option="amount" id="amount" name="amount"
+                           type="number" required
+                           placeholder="100" step="1" min="1" max="1000000"/>
+                </li>
+                <li data-input-trigger>
+
+                    <label class="fs-field-label fs-anim-upper" data-info="Previous Categories">What is the type of
+                        expense?</label>
+                    <select class="cs-select cs-skin-boxes fs-anim-lower" data-form-option="type"
+                            id="category-selection" required>
+                        <option value="" disabled selected>CATEGORY</option>
+                    </select>
+                </li>
+                <li>
+                    <label class="fs-field-label fs-anim-upper" for="reason">Add more information about that...</label>
+                    <input class="fs-anim-lower" data-form-option="reason" id="reason" name="reason" type="text"
+                           placeholder="I did it for this reason..." required/>
+                </li>
+
+            </ol><!-- /fs-fields -->
+            <button class="fs-submit" id="submit-btn" type="submit">Done</button>
+        </form><!-- /fs-form -->
+    </div><!-- /fs-form-wrap -->
+</div><!-- /container -->
+<div class="container hidden" id="charts-container">
+   <button class="fs-record" id="record-btn"><i class="material-icons">account_balance_wallet</i></button>
+    <canvas id="overview" width="400" height="400"></canvas>
+</div>
+<script src="js/modernizr.custom.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+   
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="js/Chart.bundle.min.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/selectFx.js"></script>
+<script src="js/ChartController.js"></script>
+<script src="js/FormController.js"></script>
+<script src="js/FSExpenses.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "FS Expenses",
+  "short_name": "FS Expenses",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}
